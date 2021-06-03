@@ -1,17 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/constants.dart';
-import 'package:store_app/controller/cart_controller.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/models/CartItem.dart';
-import 'package:store_app/models/Product.dart';
+import 'package:store_app/imports.dart';
 
-import '../../../size_config.dart';
-
-class BottomBar extends PreferredSize {
-  BottomBar({
+class ProductDetailsBottomBar extends PreferredSize {
+  ProductDetailsBottomBar({
     this.product,
     Key key,
   });
@@ -51,12 +41,7 @@ class _BottomBarrState extends State<BottomBarr> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.fromLTRB(
-          getProportionateScreenWidth(30),
-          getProportionateScreenWidth(20),
-          getProportionateScreenWidth(20),
-          getProportionateScreenWidth(5),
-        ),
+        padding: EdgeInsets.fromLTRB(30, 20, 20, 5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -102,8 +87,8 @@ class _BottomBarrState extends State<BottomBarr> {
                 }
               },
               child: SizedBox(
-                width: getProportionateScreenWidth(35),
-                height: getProportionateScreenWidth(35),
+                width: 35,
+                height: 35,
                 child: SvgPicture.asset(
                   "assets/icons/vcart.svg",
                   color: (widget.isChosen || isChosen)
@@ -114,9 +99,7 @@ class _BottomBarrState extends State<BottomBarr> {
             ),
             SizedBox(
               width: SizeConfig.screenWidth * 0.4,
-              child: DefaultButton(
-                text: "BUY NOW",
-              ),
+              child: DefaultButton(text: "BUY NOW"),
             ),
           ],
         ),

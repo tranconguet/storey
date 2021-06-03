@@ -1,24 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-
-import 'package:store_app/components/item_card_container.dart';
-import 'package:store_app/controller/cart_controller.dart';
-import 'package:store_app/models/CartItem.dart';
-import 'package:store_app/models/ProductArgument.dart';
-import 'package:store_app/screens/cart/components/quantity_item_counter.dart';
-import 'package:store_app/screens/cart/components/remove_item_button.dart';
-import 'package:store_app/screens/product_details/product_details_screen.dart';
-
-import '../../../size_config.dart';
-
-// class CartItemCard extends StatefulWidget {
-//   @override
-//   final CartItem item;
-
-//   const CartItemCard({Key key, @required this.item}) : super(key: key);
-//   _CartItemCardState createState() => _CartItemCardState();
-// }
+import 'package:store_app/imports.dart';
 
 class CartItemCard extends StatefulWidget {
   final CartItem item;
@@ -35,7 +15,6 @@ class CartItemCard extends StatefulWidget {
 class _CartItemCardState extends State<CartItemCard> {
   @override
   Widget build(BuildContext context) {
-    // bool isChosen = widget.item.isChosen;
     return ItemCardContainer(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,17 +32,15 @@ class _CartItemCardState extends State<CartItemCard> {
             child: Column(
               children: [
                 SizedBox(
-                  width: getProportionateScreenWidth(70),
+                  width: 70,
                   child: Image.asset(widget.item.product.images[0]),
                 ),
-                SizedBox(
-                  width: getProportionateScreenWidth(5),
-                ),
+                SizedBox(width: 5),
               ],
             ),
           ),
           SizedBox(
-            width: getProportionateScreenWidth(160),
+            width: 160,
             child: Column(
               children: [
                 tapToNavigateToProductDetails(
@@ -94,9 +71,7 @@ class _CartItemCardState extends State<CartItemCard> {
               ],
             ),
           ),
-          SizedBox(
-            width: 15,
-          ),
+          SizedBox(width: 15),
           RemoveItemButton(widget: widget)
         ],
       ),

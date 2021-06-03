@@ -1,7 +1,4 @@
-import 'package:get/get.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/models/CartItem.dart';
-import 'package:store_app/services/api_services.dart';
+import 'package:store_app/imports.dart';
 
 class CartController extends GetxController {
   var cart = List<CartItem>().obs;

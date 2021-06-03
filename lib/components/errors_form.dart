@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../constants.dart';
-import '../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class ErrorsForm extends StatelessWidget {
   const ErrorsForm({

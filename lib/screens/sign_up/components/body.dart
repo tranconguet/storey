@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:store_app/screens/sign_up/components/sign_up_form.dart';
-
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   @override

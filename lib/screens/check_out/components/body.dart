@@ -1,21 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/controller/cart_controller.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/screens/check_out/components/check_out_sumary.dart';
-import 'package:store_app/screens/check_out/components/discount_selection_box.dart';
-import 'package:store_app/screens/check_out/components/location_selection_box.dart';
-import 'package:store_app/screens/check_out/components/price_total_box.dart';
-import 'package:store_app/screens/check_out/components/product_list_box.dart';
-import 'package:store_app/screens/check_out/components/shipping_fee_box.dart';
-import 'package:store_app/screens/order_success/order_success_screen.dart';
-import 'package:store_app/services/api_services.dart';
-import 'package:store_app/size_config.dart';
-import 'package:store_app/helpers.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   var _checkOutController = Get.put(CheckOutController());
@@ -39,6 +22,7 @@ class Body extends StatelessWidget {
       'subTotal': numberToPrice(subTotal),
       'total': numberToPrice(subTotal + shipping),
       'shipping': numberToPrice(shipping),
+      'orderTime': DateTime.now().toString(),
     };
     var res = await ApiServices.sendOrder(data);
     return res;
@@ -54,6 +38,7 @@ class Body extends StatelessWidget {
                 locationSelected: _checkOutController.locationSelected.value),
             ProductList(checkOutController: _checkOutController),
             ShippingFee(checkOutController: _checkOutController),
+            // text
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -74,9 +59,7 @@ class Body extends StatelessWidget {
               discountSelected: _checkOutController.discountSelected.value,
             ),
             CheckOutSumary(checkOutController: _checkOutController),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             SizedBox(
               width: SizeConfig.screenWidth * 0.6,
               child: DefaultButton(
@@ -117,9 +100,7 @@ class Body extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
           ],
         ),
       ),

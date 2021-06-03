@@ -1,7 +1,4 @@
-import 'package:get/get.dart';
-import 'package:store_app/controller/product_page_controller.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/services/api_services.dart';
+import 'package:store_app/imports.dart';
 
 class SpecialProductsController extends GetxController {
   var menuType = 'Phone'.obs;

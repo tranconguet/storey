@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store_app/components/heading_bar.dart';
+import 'package:store_app/components/custom_drawer.dart';
 import 'package:store_app/controller/product_page_controller.dart';
-import 'package:store_app/screens/home/home_screen.dart';
+import 'package:store_app/components/heading_bar.dart';
 import 'components/body.dart';
 
 class ProductListPageScreen extends StatelessWidget {

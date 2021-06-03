@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/services/api_services.dart';
+import 'package:store_app/imports.dart';
 
 class SearchController extends GetxController {
   var text = ''.obs;

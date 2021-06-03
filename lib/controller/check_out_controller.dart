@@ -1,12 +1,4 @@
-import 'package:get/get.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/helpers.dart';
-import 'package:store_app/models/CartItem.dart';
-import 'package:store_app/models/Discount.dart';
-import 'package:store_app/models/User.dart';
-import 'package:store_app/services/api_services.dart';
-
-import 'cart_controller.dart';
+import 'package:store_app/imports.dart';
 
 class CheckOutController extends GetxController {
   var discountList = List<Discount>().obs;
@@ -18,7 +10,6 @@ class CheckOutController extends GetxController {
   var total = 0.obs;
   var totalAfterDiscount = 0.obs;
   var finalTotal = 0.obs;
-  var length = 0.obs;
 
   @override
   void onInit() async {
@@ -89,11 +80,6 @@ class CheckOutController extends GetxController {
     shippingFee.value = distanceToMoney(locationSelected.value.length);
     shippingFeeAfterDiscount.value =
         distanceToMoney(locationSelected.value.length);
-    setLength(location.length);
     setDiscount(discountSelected.value);
-  }
-
-  setLength(int lengthh) {
-    length.value = lengthh;
   }
 }

@@ -1,58 +1,40 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:store_app/constants.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/size_config.dart';
+import 'package:store_app/imports.dart';
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   final Product product;
 
-  const Body({
-    Key key,
-    @required this.product,
-  }) : super(key: key);
+  const Body({Key key, this.product}) : super(key: key);
 
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
-  int imageSelected = 0;
-
-  @override
   Widget build(BuildContext context) {
-    print(widget.product.id);
     return SingleChildScrollView(
       child: Column(
         children: [
-          imageSlide(),
+          ImageSlide(images: product.images),
           Container(
             margin: EdgeInsets.all(20),
             child: Column(
               children: [
+                // title
                 Text(
-                  widget.product.title,
+                  product.title,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: getProportionateScreenHeight(24),
-                  ),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24),
                 ),
+                // price
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    widget.product.price,
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: getProportionateScreenHeight(20),
-                    ),
+                    product.price,
+                    style: TextStyle(color: Colors.red, fontSize: 20),
                   ),
                 ),
-                SizedBox(height: 5),
                 Row(
                   children: [
                     Row(
                       children: [
+                        // rating
                         ...List.generate(
                           5,
                           (index) => Container(
@@ -67,11 +49,11 @@ class _BodyState extends State<Body> {
                         SizedBox(
                           width: 180,
                         ),
+                        // love
                         SvgPicture.asset(
                           "assets/icons/heart.svg",
-                          color: widget.product.love
-                              ? Colors.red
-                              : Colors.blueGrey[200],
+                          color:
+                              product.love ? Colors.red : Colors.blueGrey[200],
                           height: getProportionateScreenHeight(40),
                         )
                       ],
@@ -80,7 +62,7 @@ class _BodyState extends State<Body> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  widget.product.description,
+                  product.description,
                   style: TextStyle(
                     color: kSecondaryColor,
                   ),
@@ -90,55 +72,6 @@ class _BodyState extends State<Body> {
           ),
         ],
       ),
-    );
-  }
-
-  Column imageSlide() {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.all(20),
-          child: Image.asset(
-            widget.product.images[imageSelected],
-            height: SizeConfig.screenHeight * 0.25,
-          ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              ...List.generate(
-                widget.product.images.length,
-                (index) => GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      imageSelected = index;
-                    });
-                  },
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: imageSelected == index
-                            ? kPrimaryColor
-                            : kSecondaryColor,
-                      ),
-                    ),
-                    child: Image.asset(
-                      widget.product.images[index],
-                      height: getProportionateScreenHeight(80),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ],
     );
   }
 }

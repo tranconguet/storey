@@ -26,6 +26,7 @@ import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/routing.dart';
 import 'package:here_sdk/routing.dart' as here;
 import 'package:store_app/controller/check_out_controller.dart';
+import 'package:store_app/imports.dart';
 
 // A callback to notify the hosting widget.
 typedef ShowDialogFunction = void Function(String title, String message);
@@ -56,7 +57,7 @@ class RoutingExample {
         (RoutingError routingError, List<here.Route> routeList) {
       if (routingError == null) {
         here.Route route = routeList.first;
-        Get.find<CheckOutController>().setLength(route.lengthInMeters);
+        Get.find<SelectLocationController>().setLength(route.lengthInMeters);
         _showRouteDetails(route);
         _showRouteOnMap(route);
         _logRouteViolations(route);

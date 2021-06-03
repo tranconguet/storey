@@ -1,19 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/custom_surffix_icon.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/components/errors_form.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/models/User.dart';
-import 'package:store_app/screens/home/home_screen.dart';
-import 'package:store_app/screens/login/components/login_form.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:store_app/services/api_services.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class ProfileForm extends StatefulWidget {
   final arg;
@@ -25,6 +10,16 @@ class ProfileForm extends StatefulWidget {
 
 class _ProfileFormState extends State<ProfileForm> {
   final User user = Get.find<UserController>().user.value;
+
+  final List<String> errors = [];
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController;
+  TextEditingController _addressController;
+  TextEditingController _userNameController;
+  TextEditingController _phoneNumberController;
+  TextEditingController _birthdayController;
+  TextEditingController _genderController;
+
   @override
   void initState() {
     super.initState();
@@ -38,7 +33,6 @@ class _ProfileFormState extends State<ProfileForm> {
           new TextEditingController(text: user.phoneNumber);
     } else {
       // from Sign up
-      print(widget.arg);
       _emailController = new TextEditingController(text: widget.arg['email']);
       _userNameController = new TextEditingController(text: '');
       _addressController = new TextEditingController(text: '');
@@ -48,14 +42,6 @@ class _ProfileFormState extends State<ProfileForm> {
     }
   }
 
-  final List<String> errors = [];
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController;
-  TextEditingController _addressController;
-  TextEditingController _userNameController;
-  TextEditingController _phoneNumberController;
-  TextEditingController _birthdayController;
-  TextEditingController _genderController;
   void addError({String error}) {
     setState(() {
       if (!errors.contains(error)) {
@@ -218,7 +204,6 @@ class _ProfileFormState extends State<ProfileForm> {
     );
   }
 
-// assets\icons\User.svg  assets\icons\Phone.svg assets\icons\Location point.svg
   TextFormField buildAddressTextField() {
     return TextFormField(
       controller: _addressController,

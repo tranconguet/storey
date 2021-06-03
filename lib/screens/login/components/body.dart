@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:store_app/constants.dart';
-import 'package:store_app/size_config.dart';
-
-import 'login_form.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   @override

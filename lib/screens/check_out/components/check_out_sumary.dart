@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-
-import '../../../helpers.dart';
+import 'package:store_app/imports.dart';
 
 class CheckOutSumary extends StatelessWidget {
   const CheckOutSumary({
@@ -34,18 +30,14 @@ class CheckOutSumary extends StatelessWidget {
                 "Select method",
                 style: TextStyle(fontSize: 15, color: Colors.black),
               ),
-              SizedBox(
-                width: 10,
-              ),
+              SizedBox(width: 10),
               Container(
                 margin: EdgeInsets.only(right: 10),
                 child: SvgPicture.asset("assets/icons/arrow_right.svg"),
               ),
             ],
           ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Row(
             children: [
               Text(
@@ -59,9 +51,7 @@ class CheckOutSumary extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           Row(
             children: [
               Text(
@@ -76,9 +66,7 @@ class CheckOutSumary extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Row(
             children: [
               Text(

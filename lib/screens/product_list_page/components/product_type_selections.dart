@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/models/Product.dart';
-
-import 'custom_type_button.dart';
+import 'package:store_app/imports.dart';
 
 class CustomProductTypeSelections extends StatelessWidget {
   const CustomProductTypeSelections({

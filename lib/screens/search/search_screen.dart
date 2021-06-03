@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/heading_bar_for_search_page.dart';
-import 'package:store_app/controller/search_page_controller.dart';
-import './components/body.dart';
+import 'package:store_app/imports.dart';
+import 'components/body.dart';
 
 class SearchScreen extends StatelessWidget {
   static String routeName = "/search";

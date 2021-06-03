@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/constants.dart';
-import 'package:store_app/screens/home/home_screen.dart';
-import 'package:store_app/size_config.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -12,25 +6,19 @@ class Body extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(
-            height: SizeConfig.screenHeight * 0.2,
-          ),
+          SizedBox(height: SizeConfig.screenHeight * 0.2),
           SizedBox(
             height: SizeConfig.screenHeight * 0.3,
             child: SvgPicture.asset(
               "assets/icons/order_success.svg",
             ),
           ),
-          SizedBox(
-            height: SizeConfig.screenHeight * 0.08,
-          ),
+          SizedBox(height: SizeConfig.screenHeight * 0.08),
           Text(
             "Order Success !",
             style: headingStyle,
           ),
-          SizedBox(
-            height: SizeConfig.screenHeight * 0.02,
-          ),
+          SizedBox(height: SizeConfig.screenHeight * 0.02),
           RichText(
             text: TextSpan(
               style: TextStyle(
@@ -50,9 +38,7 @@ class Body extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: SizeConfig.screenHeight * 0.08,
-          ),
+          SizedBox(height: SizeConfig.screenHeight * 0.08),
           SizedBox(
             width: SizeConfig.screenWidth * 0.6,
             child: DefaultButton(

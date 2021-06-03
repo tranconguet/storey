@@ -1,7 +1,4 @@
-import 'package:get/get.dart';
-import 'package:store_app/controller/special_product_controller.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/services/api_services.dart';
+import 'package:store_app/imports.dart';
 
 class ProductListPageController extends GetxController {
   var type = ''.obs;
@@ -17,7 +14,6 @@ class ProductListPageController extends GetxController {
   };
   @override
   void onInit() async {
-    // TODO: implement onInit
     setType("Phone");
     fetchProducts();
     super.onInit();

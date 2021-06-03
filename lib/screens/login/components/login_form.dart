@@ -1,18 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/custom_surffix_icon.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/components/errors_form.dart';
-import 'package:store_app/controller/auth_controller.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:store_app/screens/login_succes.dart/login_success_screen.dart';
-import 'package:store_app/screens/sign_up/sign_up_screen.dart';
-import 'package:store_app/services/api_services.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -47,10 +33,7 @@ class _LoginFormState extends State<LoginForm> {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: EdgeInsets.only(
-          left: getProportionateScreenWidth(22),
-          right: getProportionateScreenWidth(22),
-        ),
+        padding: EdgeInsets.only(left: 22, right: 22),
         child: Column(
           children: [
             buildEmailTextField(),
@@ -63,9 +46,9 @@ class _LoginFormState extends State<LoginForm> {
             SizedBox(height: 25),
             DefaultButton(
               text: "LOGIN",
-              press: () {
+              press: () async {
                 if (_formKey.currentState.validate()) {
-                  login(_emailController.text, _passwordController.text);
+                  await login(_emailController.text, _passwordController.text);
                 }
               },
             ),
@@ -224,15 +207,13 @@ class _LoginFormState extends State<LoginForm> {
   }
 }
 
-void login(String email, String password) {
-  ApiServices.login(email, password).then((response) => {
-        if (response != null)
-          {
-            Get.find<AuthController>().saveToken(response),
-            Get.find<UserController>().setUserInfo(),
-            Get.to(() => LoginSuccessScreen()),
-          }
-        else
-          Get.snackbar("Notification", "Email or password is wrong")
-      });
+login(String email, String password) async {
+  var response = await ApiServices.login(email, password);
+
+  if (response != null) {
+    Get.find<AuthController>().saveToken(response);
+    Get.find<UserController>().setUserInfo();
+    Get.to(() => LoginSuccessScreen());
+  } else
+    Get.snackbar("Notification", "Email or password is wrong");
 }

@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/controller/product_page_controller.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class CustomProductTypeButton extends StatelessWidget {
   const CustomProductTypeButton({

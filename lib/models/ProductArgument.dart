@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'Product.dart';
+import 'package:store_app/imports.dart';
 
 class ProductDetailsArguments {
   final Product product;

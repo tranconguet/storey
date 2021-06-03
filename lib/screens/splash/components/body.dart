@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/constants.dart';
-import 'package:store_app/controller/auth_controller.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/screens/login/login_screen.dart';
-import 'package:store_app/screens/splash/components/splash_content.dart';
-import 'package:store_app/size_config.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -31,8 +23,6 @@ class _BodyState extends State<Body> {
   ];
   @override
   Widget build(BuildContext context) {
-    // Get.find<AuthController>().onInit();
-    // Get.find<UserController>().onInit();
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -64,7 +54,7 @@ class _BodyState extends State<Body> {
                   ),
                 ),
               ),
-              buildDots(),
+              PageDots(splashData: splashData, currentPage: currentPage),
               SizedBox(
                 height: SizeConfig.screenHeight * 0.05,
               ),
@@ -78,25 +68,6 @@ class _BodyState extends State<Body> {
                 ),
               )
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Row buildDots() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        splashData.length,
-        (index) => AnimatedContainer(
-          duration: Duration(milliseconds: 200),
-          margin: EdgeInsets.all(getProportionateScreenWidth(4)),
-          height: 10,
-          width: index == currentPage ? 30 : 15,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: index == currentPage ? Colors.lightGreen : kSecondaryColor,
           ),
         ),
       ),

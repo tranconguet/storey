@@ -1,18 +1,13 @@
-import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:store_app/models/CartItem.dart';
-import 'package:store_app/models/Discount.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/models/User.dart';
+import 'package:store_app/imports.dart';
 
 class ApiServices {
   static var client = http.Client();
-  static String host = "https://first-store-app.herokuapp.com";
+  static String host = "http://127.0.0.1:3000";
 
   static Future<List<Product>> fetchProducts(String productType) async {
-    print('fetching... ${productType}');
-    var url = Uri.parse("${host}/products/${productType}");
+    print('fetching... $productType');
+    var url = Uri.parse("$host/products/$productType");
     var response = await client.get(url);
     if (response.statusCode == 200) {
       print('fetch success');
@@ -24,8 +19,37 @@ class ApiServices {
     }
   }
 
+  static Future<List<User>> fetchUsers() async {
+    print('fetching... users');
+    var url = Uri.parse("$host/users");
+    var response = await client.get(url);
+    if (response.statusCode == 200) {
+      print('fetch success');
+      var jsonString = response.body;
+      return userFromJson(jsonString);
+    } else {
+      //return error message
+      return null;
+    }
+  }
+
+  static Future<List<Order>> fetchOrders() async {
+    print('fetching... orders');
+    var url = Uri.parse("$host/orders");
+    var response = await client.get(url);
+    if (response.statusCode == 200) {
+      print('fetch success');
+      var jsonString = response.body;
+      print(ordersFromJson(jsonString));
+      return ordersFromJson(jsonString);
+    } else {
+      //return error message
+      return null;
+    }
+  }
+
   static Future<String> login(String email, String password) async {
-    var url = Uri.parse("${host}/users/login");
+    var url = Uri.parse("$host/users/login");
     var respone = await client.post(
       url,
       body: {'email': email, 'password': password},
@@ -40,7 +64,7 @@ class ApiServices {
   }
 
   static Future<String> register(String email, String password) async {
-    var url = Uri.parse("${host}/users/register");
+    var url = Uri.parse("$host/users/register");
     var respone = await client.post(
       url,
       body: {'email': email, 'password': password},
@@ -55,7 +79,7 @@ class ApiServices {
   }
 
   static Future<User> getInfoByToken(String token) async {
-    var url = Uri.parse("${host}/users/token");
+    var url = Uri.parse("$host/users/token");
     var respone = await client.get(
       url,
       headers: {'auth-token': token},
@@ -72,7 +96,7 @@ class ApiServices {
   }
 
   static Future<Product> getProductById(String id) async {
-    var url = Uri.parse("${host}/products/${id}");
+    var url = Uri.parse("$host/products/$id");
     var respone = await client.get(
       url,
     );
@@ -102,7 +126,7 @@ class ApiServices {
 
   static updateUser(data, id) async {
     print(data);
-    var url = Uri.parse("${host}/users/${id}");
+    var url = Uri.parse("$host/users/$id");
     var response = await client.put(url, body: data);
     if (response.statusCode == 200) {
       print(response.body);
@@ -112,9 +136,54 @@ class ApiServices {
     }
   }
 
+  static updateProduct(data) async {
+    var url = Uri.parse("$host/products/updateProductById");
+    var response = await client.post(url, body: data);
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print("update failed");
+      return null;
+    }
+  }
+
+  static deleteProduct(productId) async {
+    var url = Uri.parse("$host/products/deleteProductById");
+    var response = await client.post(url, body: {"id": productId});
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print("delete failed");
+      return null;
+    }
+  }
+
+  static updateOrder(data) async {
+    var url = Uri.parse("$host/orders/updateOrderById");
+    var response = await client.post(url, body: data);
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print("update failed");
+      return null;
+    }
+  }
+
+  static deleteOrder(orderId) async {
+    var url = Uri.parse("$host/orders/deleteOrderById");
+    print(orderId);
+    var response = await client.post(url, body: {"id": orderId});
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print("delete failed");
+      return null;
+    }
+  }
+
   static Future<List<Product>> fetchProductsBySearch(String text) async {
-    print('fetching search ... ${text}');
-    var url = Uri.parse("${host}/products/search/${text}");
+    print('fetching search ... $text');
+    var url = Uri.parse("$host/products/search/$text");
     var response = await client.get(url);
     if (response.statusCode == 200) {
       print('fetch success');
@@ -127,7 +196,7 @@ class ApiServices {
   }
 
   static Future<String> sendOrder(data) async {
-    var url = Uri.parse("${host}/orders");
+    var url = Uri.parse("$host/orders");
     var respone = await client.post(
       url,
       body: data,
@@ -142,7 +211,7 @@ class ApiServices {
 
   static Future<List<Discount>> fetchDiscounts() async {
     print('fetching... all discounts');
-    var url = Uri.parse("${host}/discounts");
+    var url = Uri.parse("$host/discounts");
     var response = await client.get(url);
     if (response.statusCode == 200) {
       print('fetch success');

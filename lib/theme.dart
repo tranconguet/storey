@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'imports.dart';
 
 ThemeData theme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(

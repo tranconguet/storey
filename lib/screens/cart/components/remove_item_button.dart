@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/controller/cart_controller.dart';
-
-import '../../../size_config.dart';
-import 'cart_item_card.dart';
+import 'package:store_app/imports.dart';
 
 class RemoveItemButton extends StatelessWidget {
   const RemoveItemButton({

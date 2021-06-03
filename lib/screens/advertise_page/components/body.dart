@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/models/Product.dart';
-import 'package:store_app/screens/home/components/special_products.dart';
-import 'package:store_app/services/api_services.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatefulWidget {
   @override

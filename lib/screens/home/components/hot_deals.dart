@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/screens/advertise_page/advertise_page_screen.dart';
-
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class HotDeals extends StatelessWidget {
   const HotDeals({
@@ -37,8 +33,8 @@ class HotDeals extends StatelessWidget {
                       ),
                       width: SizeConfig.screenWidth * 0.45,
                       child: SizedBox(
-                        width: getProportionateScreenWidth(230),
-                        height: getProportionateScreenWidth(80),
+                        width: 230,
+                        height: 80,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(

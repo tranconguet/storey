@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/models/ProductArgument.dart';
-import './components/bottom_bar.dart';
-import './components/body.dart';
+import 'package:store_app/imports.dart';
+import 'components/body.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   static String routeName = "/product_details";
@@ -15,7 +13,7 @@ class ProductDetailsScreen extends StatelessWidget {
       body: Body(
         product: arguments.product,
       ),
-      bottomNavigationBar: BottomBar(
+      bottomNavigationBar: ProductDetailsBottomBar(
         product: arguments.product,
       ),
     );

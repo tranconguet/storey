@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/models/Discount.dart';
-import 'package:store_app/screens/discount/discount_screen.dart';
+import 'package:store_app/imports.dart';
 
 class DiscountSelection extends StatelessWidget {
   final List<Discount> discountList;
@@ -51,9 +47,7 @@ class DiscountSelection extends StatelessWidget {
                     "Select voucher",
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
-            SizedBox(
-              width: 10,
-            ),
+            SizedBox(width: 10),
             Container(
               margin: EdgeInsets.only(right: 10),
               child: SvgPicture.asset("assets/icons/arrow_right.svg"),

@@ -1,18 +1,6 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:here_sdk/core.dart';
-import 'package:here_sdk/mapview.dart';
-import 'package:here_sdk/search.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-import 'package:store_app/controller/select_location_controller.dart';
-import 'package:store_app/size_config.dart';
-
-import 'RoutingExample.dart';
-import 'SearchExample.dart';
+import 'package:store_app/screens/choose_location_on_map/components/SearchExample.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -40,9 +28,7 @@ class _BodyState extends State<Body> {
 
   bool isSearching = false;
 
-  final _selectLocationController = Get.find<SelectLocationController>();
-
-  final _checkOutController = Get.find<CheckOutController>();
+  var _selectLocationController = Get.find<SelectLocationController>();
 
   @override
   Widget build(BuildContext context) {
@@ -115,18 +101,12 @@ class _BodyState extends State<Body> {
             ],
           ),
         ),
-        Obx(
-          () => AnimatedPositioned(
-            duration: Duration(seconds: 1),
-            top: !showSelection
-                ? SizeConfig.screenHeight
-                : SizeConfig.screenHeight * 0.72,
-            child: CustomDialog(
-                length: _checkOutController.length.value,
-                showSelection: showSelection,
-                selectLocationController: _selectLocationController,
-                suggestionSelected: suggestionSelected),
-          ),
+        AnimatedPositioned(
+          duration: Duration(seconds: 1),
+          top: !showSelection
+              ? SizeConfig.screenHeight
+              : SizeConfig.screenHeight * 0.72,
+          child: CustomDialog(suggestionSelected: suggestionSelected),
         ),
       ],
     );
@@ -199,78 +179,6 @@ class _BodyState extends State<Body> {
           ],
         );
       },
-    );
-  }
-}
-
-class CustomDialog extends StatelessWidget {
-  const CustomDialog({
-    Key key,
-    @required this.showSelection,
-    @required SelectLocationController selectLocationController,
-    @required this.suggestionSelected,
-    @required this.length,
-  })  : _selectLocationController = selectLocationController,
-        super(key: key);
-
-  final bool showSelection;
-  final SelectLocationController _selectLocationController;
-  final Suggestion suggestionSelected;
-  final int length;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.blueGrey,
-        ),
-        borderRadius: BorderRadius.all(
-          Radius.circular(25),
-        ),
-        color: Colors.white,
-      ),
-      padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
-      height: SizeConfig.screenHeight * 0.18,
-      width: SizeConfig.screenWidth,
-      child: Column(
-        children: [
-          Text(
-            'Length: ${length} meters',
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: SizeConfig.screenWidth * 0.35,
-                child: DefaultButton(
-                  text: "SELECT",
-                  press: () {
-                    _selectLocationController
-                        .saveLocation(suggestionSelected.place.title);
-                    Get.back();
-                  },
-                ),
-              ),
-              Spacer(),
-              SizedBox(
-                width: SizeConfig.screenWidth * 0.35,
-                child: DefaultButton(
-                  text: "CANCEL",
-                  press: () {
-                    Get.back();
-                  },
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }

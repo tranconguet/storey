@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/controller/product_page_controller.dart';
-import 'package:store_app/screens/home/components/special_products.dart';
-import 'package:store_app/screens/product_list_page/components/product_type_selections.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   var _controller = Get.find<ProductListPageController>();

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:store_app/imports.dart';
 
 class AuthController extends GetxController {
   var token = ''.obs;

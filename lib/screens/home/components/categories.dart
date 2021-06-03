@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class Categories extends StatelessWidget {
   List<Map<String, dynamic>> categories = [
@@ -14,8 +11,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,13 +57,8 @@ class CategoryCard extends StatelessWidget {
               child: SvgPicture.asset(icon),
             ),
           ),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            text,
-            textAlign: TextAlign.center,
-          ),
+          SizedBox(height: 5),
+          Text(text, textAlign: TextAlign.center),
         ],
       ),
     );

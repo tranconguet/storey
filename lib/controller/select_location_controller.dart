@@ -1,10 +1,9 @@
-import 'package:get/get.dart';
-import 'package:store_app/controller/user_controller.dart';
-import 'package:store_app/models/User.dart';
+import 'package:store_app/imports.dart';
 
 class SelectLocationController extends GetxController {
   var location = ''.obs;
   var locationList = List<Location>().obs;
+  var length = 0.obs;
 
   @override
   void onInit() {
@@ -24,6 +23,10 @@ class SelectLocationController extends GetxController {
 
   saveLocation(String newLocation) {
     location.value = newLocation;
+  }
+
+  setLength(int lengthh) {
+    length.value = lengthh;
   }
 
   clear() {

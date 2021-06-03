@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-import 'package:store_app/models/CartItem.dart';
-
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({
@@ -44,9 +40,7 @@ class CheckOutItem extends StatelessWidget {
         children: [
           Container(
             width: SizeConfig.screenWidth * 0.2,
-            child: Image.asset(
-              item.product.images[0],
-            ),
+            child: Image.asset(item.product.images[0]),
           ),
           Container(
             width: SizeConfig.screenWidth * 0.6,
@@ -55,20 +49,13 @@ class CheckOutItem extends StatelessWidget {
               children: [
                 Text(
                   item.product.title,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 Row(
                   children: [
-                    Text(
-                      item.product.price,
-                      style: TextStyle(color: Colors.red),
-                    ),
+                    Text(item.product.price,
+                        style: TextStyle(color: Colors.red)),
                     Spacer(),
                     Text(
                       "x${item.numOfItem.toString()}",

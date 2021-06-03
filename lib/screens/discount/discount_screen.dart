@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import './components/body.dart';
+import 'package:store_app/imports.dart';
+
+import 'components/body.dart';
 
 class DiscountScreen extends StatelessWidget {
   static String routeName = "/discount";
@@ -9,9 +10,7 @@ class DiscountScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Discount selection",
-          style: TextStyle(
-            color: Colors.black,
-          ),
+          style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
       ),

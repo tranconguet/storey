@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/constants.dart';
-import 'package:store_app/screens/cart/cart_screen.dart';
-import 'package:store_app/screens/home/home_screen.dart';
-import 'package:store_app/screens/message/message_screen.dart';
-import 'package:store_app/screens/profile/profile_screen.dart';
-import 'package:store_app/screens/settings/settings_screen.dart';
-
-import '../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class BottomBar extends PreferredSize {
   final String selectedRoute;
@@ -28,12 +18,7 @@ class BottomBar extends PreferredSize {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            getProportionateScreenWidth(10),
-            getProportionateScreenWidth(10),
-            getProportionateScreenWidth(10),
-            getProportionateScreenWidth(5),
-          ),
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-
-import '../../../helpers.dart';
+import 'package:store_app/imports.dart';
 
 class ProductPriceTotal extends StatelessWidget {
   const ProductPriceTotal({

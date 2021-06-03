@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/models/User.dart';
-import 'package:store_app/screens/select_location/select_location_screen.dart';
-
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class LocationSelection extends StatelessWidget {
   final Location locationSelected;
@@ -45,28 +39,17 @@ class LocationSelection extends StatelessWidget {
                                   Text(
                                     locationSelected.receiverName,
                                     style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                    ),
+                                        color: Colors.black, fontSize: 14),
                                   ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
+                                  SizedBox(height: 5),
                                   Text(locationSelected.phoneNumber),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    locationSelected.address,
-                                    maxLines: 2,
-                                  ),
+                                  SizedBox(height: 5),
+                                  Text(locationSelected.address, maxLines: 2),
                                 ],
                               ),
                             )
                           : Text(""),
-                      SizedBox(
-                        width: 10,
-                      ),
+                      SizedBox(width: 10),
                       Container(
                         margin: EdgeInsets.only(right: 10),
                         child: SvgPicture.asset("assets/icons/arrow_right.svg"),

@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/screens/home/home_screen.dart';
-import 'package:store_app/screens/search/search_screen.dart';
-
-import '../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class HeadingBar extends PreferredSize {
   HeadingBar({

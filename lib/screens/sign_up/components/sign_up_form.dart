@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/custom_surffix_icon.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/components/errors_form.dart';
-import 'package:store_app/screens/otp/otp_screen.dart';
-import 'package:store_app/services/api_services.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class SignUpForm extends StatefulWidget {
   @override

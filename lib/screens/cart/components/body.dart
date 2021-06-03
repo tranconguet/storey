@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/controller/cart_controller.dart';
-import 'package:store_app/controller/check_out_controller.dart';
-import 'package:store_app/screens/check_out/check_out_screen.dart';
-import 'package:store_app/size_config.dart';
-
-import 'cart_item_card.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatelessWidget {
   var cartController = Get.put(CartController());
@@ -26,12 +18,7 @@ class Body extends StatelessWidget {
                         item: cartController.cart.value[index],
                       )),
               SelectAllCheckBox(),
-              SizedBox(
-                height: getProportionateScreenHeight(10),
-              ),
-              SizedBox(
-                height: getProportionateScreenHeight(30),
-              ),
+              SizedBox(height: 30),
               SizedBox(
                 width: SizeConfig.screenWidth * 0.6,
                 child: DefaultButton(

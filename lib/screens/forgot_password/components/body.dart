@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/components/custom_surffix_icon.dart';
-import 'package:store_app/components/default_button.dart';
-import 'package:store_app/components/errors_form.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:store_app/imports.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -20,13 +14,13 @@ class _BodyState extends State<Body> {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: EdgeInsets.all(getProportionateScreenWidth(25)),
+        padding: EdgeInsets.all(25),
         child: Column(
           children: [
             buildEmailTextField(),
-            SizedBox(height: getProportionateScreenHeight(10)),
+            SizedBox(height: 10),
             ErrorsForm(errors: errors),
-            SizedBox(height: getProportionateScreenHeight(10)),
+            SizedBox(height: 10),
             DefaultButton(
               text: "Send code",
               press: () {

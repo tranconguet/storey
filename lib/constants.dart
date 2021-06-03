@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:store_app/size_config.dart';
+import 'imports.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -47,3 +46,8 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: BorderSide(color: kTextColor),
   );
 }
+
+TextStyle normalText = TextStyle(
+  fontSize: 20,
+  color: Colors.black,
+);

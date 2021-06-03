@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:store_app/imports.dart';
 import 'components/body.dart';
 
 class SelectLocationInformationScreen extends StatelessWidget {

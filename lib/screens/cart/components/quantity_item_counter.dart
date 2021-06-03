@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:store_app/controller/cart_controller.dart';
-
-import '../../../size_config.dart';
-import 'cart_item_card.dart';
+import 'package:store_app/imports.dart';
 
 class QuantityCounter extends StatelessWidget {
   const QuantityCounter({
@@ -19,7 +13,7 @@ class QuantityCounter extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: SizedBox(
-        width: getProportionateScreenWidth(70),
+        width: 70,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -30,14 +24,14 @@ class QuantityCounter extends StatelessWidget {
                       widget.item.product.id, widget.item.numOfItem - 1);
               },
               child: SizedBox(
-                width: getProportionateScreenWidth(15),
-                height: getProportionateScreenWidth(15),
+                width: 15,
+                height: 15,
                 child: SvgPicture.asset("assets/icons/remove.svg"),
               ),
             ),
             Text(
               widget.item.numOfItem.toString(),
-              style: TextStyle(fontSize: getProportionateScreenWidth(15)),
+              style: TextStyle(fontSize: 16),
             ),
             GestureDetector(
               onTap: () {
@@ -46,8 +40,8 @@ class QuantityCounter extends StatelessWidget {
                       widget.item.product.id, widget.item.numOfItem + 1);
               },
               child: SizedBox(
-                width: getProportionateScreenWidth(15),
-                height: getProportionateScreenWidth(15),
+                width: 15,
+                height: 15,
                 child: SvgPicture.asset("assets/icons/plus.svg"),
               ),
             ),
