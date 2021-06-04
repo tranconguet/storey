@@ -3,7 +3,7 @@ import 'package:store_app/imports.dart';
 
 class ApiServices {
   static var client = http.Client();
-  static String host = "http://127.0.0.1:3000";
+  static String host = "https://first-store-app.herokuapp.com";
 
   static Future<List<Product>> fetchProducts(String productType) async {
     print('fetching... $productType');
